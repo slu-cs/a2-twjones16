@@ -1,6 +1,7 @@
-// Store some data in the faculty database
+
 const fs = require('fs');
 const readline = require('readline');
+
 const mongoose = require('mongoose');
 const connect = require('./db');
 const Voter = require('./schema');
@@ -30,7 +31,6 @@ file.on('line', function(line) {
 });
 
 //take the voters data just parsed from the file and promise then save them
-
 file.on('close', function() {
     mongoose.connection.dropDatabase()
         .then(() => Promise.all(data.map(voter => voter.save())))
