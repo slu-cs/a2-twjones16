@@ -6,7 +6,11 @@ const connect = require('./db');
 const Voter = require('./schema');
 
 connect(); // To the database
+
+//start an empty list to store data parsed from csv
 data = []
+
+
 const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 
@@ -17,7 +21,7 @@ const file = readline.createInterface({
 file.on('line', function(line) {
     const col = line.split(',');
     data.push(new Voter({
-        firse: col[0],
+        first: col[0],
         last: col[1],
         zip: col[2],
         history: col[3]
