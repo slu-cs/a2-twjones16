@@ -5,15 +5,15 @@ const Voter = require('./schema');
 connect(); // caonnect to the database
 
 queries = [
-
+  //find where the zip = canton zip
   Voter.find().where('zip').equals('13617'),
-
+  //find voters with first name STARR
   Voter.find().where('first').equals('STARR'),
-
+  //who voted in 2016 general election
   Voter.find({'history':{$regex: '.*GE16.*'}}),
-
+  // find the last last name
   Voter.find().sort('-last').limit(1),
-
+  //find all the distinct zips
   Voter.distinct('zip')
 ];
 

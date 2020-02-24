@@ -11,7 +11,7 @@ connect(); // To the database
 //start an empty list to store data parsed from csv
 data = []
 
-
+//set up the file to be read
 const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 
