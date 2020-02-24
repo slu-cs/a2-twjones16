@@ -1,5 +1,6 @@
 // Store some data in the faculty database
 const fs = require('fs');
+const readline = require('readline');
 const mongoose = require('mongoose');
 const connect = require('./db');
 const Voter = require('./schema');
